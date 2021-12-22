@@ -3,5 +3,6 @@
 void Log(const char *message)
 {
     cout << message << endl;
+    cout << Vzk << endl;
     cin.get();
 }

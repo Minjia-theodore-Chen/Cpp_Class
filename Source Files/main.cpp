@@ -3,6 +3,4 @@
 int main()
 {
     Log("what is this? eee!");
-    cout << Vzk << endl;
-    cin.get();
 }
