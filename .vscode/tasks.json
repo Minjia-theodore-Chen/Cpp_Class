@@ -7,9 +7,10 @@
             "command": "D:/APPs/msys64/mingw64/bin/g++.exe",
             "args": [
                 "-g",
-                "${file}",
+                "${fileDirname}\\**.cpp",
+                //"${fileDirname}\\**.h",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
             ],
             "options": {
                 "cwd": "${fileDirname}"
