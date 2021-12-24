@@ -6,3 +6,5 @@ void Log(const char *message)
     cout << Vzk << endl;
     cin.get();
 }
+
+class csvfile;
