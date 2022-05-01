@@ -1,5 +1,5 @@
-#include "..\Header Files\functions.h"
-#include "..\Header Files\answers.h"
+#include "..\header\functions.h"
+#include "..\header\answers.h"
 
 int main()
 {

@@ -1,4 +1,4 @@
-#include "..\Header Files\functions.h"
+#include "../header/functions.h"
 
 void Log(const char *message)
 {
