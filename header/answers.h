@@ -144,7 +144,7 @@ class Longest_Palindromic_Substring
     int n;
 
 public:
-    int longestLength(string &s, int left, int right)
+    int longestLength(std::string &s, int left, int right)
     {
         while (left >= 0 && right <= n)
         {
@@ -155,7 +155,7 @@ public:
         }
         return right - left - 1;
     };
-    string longestPalindrome(string s)
+    std::string longestPalindrome(std::string s)
     {
         n = s.size();
         int start = 0, end = 0;
@@ -163,7 +163,7 @@ public:
         {
             int x = longestLength(s, i, i);
             int y = longestLength(s, i, i + 1);
-            int len = max(x, y);
+            int len = std::max(x, y);
 
             if (len > end - start + 1)
             {
@@ -178,10 +178,10 @@ public:
 class Zigzag_Conversion
 {
 public:
-    string convert(string s, int numRows)
+    std::string convert(std::string s, int numRows)
     {
-        string ans;
-        std::vector<string> tmp(numRows);
+        std::string ans;
+        std::vector<std::string> tmp(numRows);
         int i = 0, n = s.size();
         while (i < n)
         {
@@ -222,5 +222,34 @@ public:
             }            
         }
         return y;
+    }
+
+    int reverse_alt(int x)
+    {
+        int ans = 0;
+        while(x && x<=INT_MAX && x>=INT_MIN)
+        {
+            std::string holder = std::to_string(x);
+            std::reverse(holder.begin(), holder.end());
+            Log(holder);
+            try
+            {
+                ans = std::stoi(holder);
+            }
+            catch(const std::exception& e)
+            {
+                return 0;
+            }
+            if (x>0)
+            {
+                return ans;
+            }
+            else
+            {
+                return -ans;
+            }
+            
+        }
+        return ans;
     }
 };

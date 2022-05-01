@@ -1,12 +1,11 @@
-#include "..\header\functions.h"
 #include "..\header\answers.h"
 
 int main()
 {
+    int input = 1534236469;
+
     Reverse_Interger problem;
-    Log(problem.reverse(345));
-    int res = -6 % 10;
-    Log(res);
+    Log(problem.reverse_alt(input));
 
     // std::cin.get();
 }
