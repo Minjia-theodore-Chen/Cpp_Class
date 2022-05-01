@@ -136,3 +136,67 @@ public:
         return ans;
     }
 };
+
+class Longest_Palindromic_Substring
+{
+    int n;
+
+public:
+    int longestLength(string &s, int left, int right)
+    {
+        while (left >= 0 && right <= n)
+        {
+            if (s[left] != s[right])
+                break; // exits when the two pointers are already two characters too wide apart
+            left--;
+            right++;
+        }
+        return right - left - 1;
+    };
+    string longestPalindrome(string s)
+    {
+        n = s.size();
+        int start = 0, end = 0;
+        for (int i = 0; i < n; i++)
+        {
+            int x = longestLength(s, i, i);
+            int y = longestLength(s, i, i + 1);
+            int len = max(x, y);
+
+            if (len > end - start + 1)
+            {
+                start = i - ((len - 1) / 2);
+                end = i + (len / 2);
+            }
+        }
+        return s.substr(start, end - start + 1);
+    }
+};
+
+class Zigzag_Conversion
+{
+public:
+    string convert(string s, int numRows)
+    {
+        string ans;
+        std::vector<string> tmp(numRows);
+        int i = 0, n = s.size();
+        while (i < n)
+        {
+            for (int j = 0; j < numRows && i < n; j++, i++)
+            {
+                tmp[j] += s[i];
+            }
+            for (int j = numRows - 2; j > 0 && i < n; j--, i++)
+            {
+                tmp[j] += s[i];
+            }
+        }
+        for (int j = 0; j < numRows; j++)
+        {
+            ans += tmp[j];
+        }
+
+        return ans;
+    };
+};

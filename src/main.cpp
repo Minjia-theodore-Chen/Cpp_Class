@@ -3,12 +3,13 @@
 
 int main()
 {
-    Median_of_Two_Sorted_Arrays problem;
-    std::vector<int> nums1{1, 2};
-    std::vector<int> nums2{3, 4, 5};
-    std::vector<int> nums3{3};
+    Zigzag_Conversion problem;
 
-    std::cout << problem.findMedianSortedArrays(nums1, nums2) << std::endl;
+    string s = "abbda";
 
-    std::cin.get();
+    int n = 2;
+
+    std::cout << problem.convert(s, n) << std::endl;
+
+    // std::cin.get();
 }
