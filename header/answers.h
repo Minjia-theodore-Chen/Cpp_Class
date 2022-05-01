@@ -231,7 +231,7 @@ public:
         {
             std::string holder = std::to_string(x);
             std::reverse(holder.begin(), holder.end());
-            Log(holder);
+
             try
             {
                 ans = std::stoi(holder);
@@ -240,14 +240,9 @@ public:
             {
                 return 0;
             }
-            if (x>0)
-            {
-                return ans;
-            }
-            else
-            {
-                return -ans;
-            }
+
+            if (x>0) return ans;
+            else return -ans;
             
         }
         return ans;
