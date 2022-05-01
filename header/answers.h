@@ -211,7 +211,7 @@ public:
         int y = 0;
         while (x)
         {
-            if (y>INT_MAX/10||y<INT_MIN/10)
+            if (y > INT_MAX / 10 || y < INT_MIN / 10)
             {
                 return 0;
             }
@@ -219,7 +219,7 @@ public:
             {
                 y = y * 10 + x % 10;
                 x = x / 10;
-            }            
+            }
         }
         return y;
     }
@@ -227,7 +227,7 @@ public:
     int reverse_alt(int x)
     {
         int ans = 0;
-        while(x && x<=INT_MAX && x>=INT_MIN)
+        while (x && x <= INT_MAX && x >= INT_MIN)
         {
             std::string holder = std::to_string(x);
             std::reverse(holder.begin(), holder.end());
@@ -236,15 +236,63 @@ public:
             {
                 ans = std::stoi(holder);
             }
-            catch(const std::exception& e)
+            catch (const std::exception &e)
             {
                 return 0;
             }
 
-            if (x>0) return ans;
-            else return -ans;
-            
+            return (x > 0) ? ans : -ans;
         }
         return ans;
+    }
+};
+
+class String_to_Integer
+{
+    bool isDigit(char ch)
+    {
+        return ch >= '0' && ch <= '9';
+    }
+
+public:
+    int myAtoi(std::string s)
+    {
+        const int len = s.size();
+        if (len == 0)
+        {
+            return 0;
+        }
+        int index = 0;
+        while ((index < len) && (s[index] == ' '))
+        {
+            ++index;
+        }
+
+        if (index == len)
+        {
+            return 0;
+        }
+
+        char ch;
+        bool Neg = (ch = s[index]) == '-';
+        if (Neg || ch == '+')
+        {
+            ++index;
+        }
+
+        const int maxLimit = INT_MAX / 10;
+        int result = 0;
+        while (index < len && isDigit(ch = s[index]))
+        {
+            int digit = ch - '0';
+            if (result > maxLimit || (result == maxLimit && digit > 7))
+            {
+                return Neg ? INT_MIN : INT_MAX;
+            }
+
+            result = (result * 10) + digit;
+            ++index;
+        }
+        return Neg ? -result : result;
     }
 };
