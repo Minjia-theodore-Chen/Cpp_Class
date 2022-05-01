@@ -1,9 +1,14 @@
 #include "..\Header Files\functions.h"
+#include "..\Header Files\answers.h"
 
 int main()
 {
-    vector<int> g1;
+    Median_of_Two_Sorted_Arrays problem;
+    std::vector<int> nums1{1, 2};
+    std::vector<int> nums2{3, 4, 5};
+    std::vector<int> nums3{3};
 
-    for (int i = 1; i <= 5; i++)
-        g1.push_back(i);
+    std::cout << problem.findMedianSortedArrays(nums1, nums2) << std::endl;
+
+    std::cin.get();
 }
