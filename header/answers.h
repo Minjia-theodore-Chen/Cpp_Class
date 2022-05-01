@@ -7,6 +7,8 @@
 #include <cmath>
 #include <algorithm>
 
+#define Log(x) std::cout << x << std::endl;
+
 class Two_Sum
 {
 public:
@@ -199,4 +201,26 @@ public:
 
         return ans;
     };
+};
+
+class Reverse_Interger
+{
+public:
+    int reverse(int x)
+    {
+        int y = 0;
+        while (x)
+        {
+            if (y>INT_MAX/10||y<INT_MIN/10)
+            {
+                return 0;
+            }
+            else
+            {
+                y = y * 10 + x % 10;
+                x = x / 10;
+            }            
+        }
+        return y;
+    }
 };

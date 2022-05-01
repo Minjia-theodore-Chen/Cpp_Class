@@ -3,13 +3,10 @@
 
 int main()
 {
-    Zigzag_Conversion problem;
-
-    string s = "abbda";
-
-    int n = 2;
-
-    std::cout << problem.convert(s, n) << std::endl;
+    Reverse_Interger problem;
+    Log(problem.reverse(345));
+    int res = -6 % 10;
+    Log(res);
 
     // std::cin.get();
 }
